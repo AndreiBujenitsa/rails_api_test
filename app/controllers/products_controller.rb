@@ -6,7 +6,7 @@ class ProductsController < ApplicationController
   # GET /products
   # GET /products.json
   def index
-    @products = Product.formatted.page(params[:page]).per(100)
+    @products = Product.page(params[:page]).per(100)
     render json: @products
   end
 
@@ -51,7 +51,7 @@ class ProductsController < ApplicationController
   private
 
     def set_product
-      @product = Product.formatted.find(params[:id])
+      @product = Product.find(params[:id])
     end
 
     def product_params
